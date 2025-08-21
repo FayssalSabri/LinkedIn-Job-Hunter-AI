@@ -1,0 +1,49 @@
+# Environment variables
+.env
+*.env
+.env.*
+
+# API Credentials & Secrets
+credentials.json
+*.credentials.json
+*credentials*.json
+
+# Google API tokens
+token.json
+*.token.json
+*token*.json
+
+# IDE settings
+.vscode/
+.idea/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build outputs
+dist/
+build/
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Project specific
+**/workflows/*.json
+**/n8n-workflow-*.json
