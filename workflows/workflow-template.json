@@ -1,0 +1,121 @@
+{
+  "nodes": [
+    {
+      "typeVersion": 1
+    },
+    {
+      "typeVersion": 3
+    },
+    {
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "dbe8693f-b1bb-4a90-81f8-74e547da6345",
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        672
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "7facf548-a5ae-40f6-9733-30b7dd18f5c6",
+      "name": "Extract from File",
+      "type": "n8n-nodes-base.extractFromFile",
+      "position": [
+        352
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "9ab899ad-6f37-446c-99bb-f7c92aae39e7",
+      "name": "Download file",
+      "type": "n8n-nodes-base.googleDrive",
+      "position": [
+        352
+      ],
+      "typeVersion": 3,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "CLIENT_ID": "{{$env.GOOGLE_DRIVE_OAUTH_CLIENT_ID}}",
+          "CLIENT_SECRET": "{{$env.GOOGLE_DRIVE_OAUTH_CLIENT_SECRET}}"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "columns": {
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "26acf7d7-717b-4993-a35f-b8f47bacb932",
+      "name": "Append or update row in sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        2288,
+        672
+      ],
+      "typeVersion": 4.6,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "CLIENT_ID": "{{$env.GOOGLE_SHEETS_OAUTH_CLIENT_ID}}",
+          "CLIENT_SECRET": "{{$env.GOOGLE_SHEETS_OAUTH_CLIENT_SECRET}}"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "{{$env.TELEGRAM_CHAT_ID}}",
+        "text": "=Title: {{ $json.Title }}\nCompany: {{ $json.Company }}\nLocation: {{ $json.Location }}\nJob Score: {{ $json.score }}\nlink: {{ $json.link }}\ncover letter : {{ $json[\"Cover Letter\"] }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "id": "85b27871-88f5-4cc5-8884-a9fd8714bb16",
+      "name": "Send a text message",
+      "type": "n8n-nodes-base.telegram",
+      "position": [
+        2816,
+        960
+      ],
+      "webhookId": "webhook-id",
+      "typeVersion": 1.2,
+      "credentials": {
+        "telegramApi": {
+          "token": "{{$env.TELEGRAM_BOT_TOKEN}}"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "value": "{{$env.GOOGLE_SHEETS_DOCUMENT_ID}}"
+        },
+        "options": {}
+      },
+      "id": "04ae55dc-2c78-4bef-b76b-a6abe0d2b287",
+      "name": "Get row(s) in sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        352
+      ],
+      "typeVersion": 4.6,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "CLIENT_ID": "{{$env.GOOGLE_SHEETS_OAUTH_CLIENT_ID}}",
+          "CLIENT_SECRET": "{{$env.GOOGLE_SHEETS_OAUTH_CLIENT_SECRET}}"
+        }
+      }
+    }
+  ]
+}

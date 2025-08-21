@@ -1,8 +1,8 @@
 # Environment variables
 .env
+/env.example
 *.env
 .env.*
-
 # API Credentials & Secrets
 credentials.json
 *.credentials.json
@@ -45,5 +45,4 @@ ehthumbs.db
 Thumbs.db
 
 # Project specific
-**/workflows/*.json
-**/n8n-workflow-*.json
+workflows/LinkedIn Job Search_ Auto-Match Resume with AI + Cover Letter & Telegram Alerts.json
