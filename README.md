@@ -27,37 +27,6 @@ An intelligent agent that automatically:
 
 ---
 
-## 🛠️ Installation
-
-1. **Clone the project**
-   ```bash
-   git clone https://github.com/yourusername/job-search-bot.git
-   cd job-search-bot
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Configure environment variables**  
-   Copy the example file:
-   ```bash
-   cp .env.example .env
-   ```
-   Then fill in `.env` with your credentials:  
-
-   ```
-   TELEGRAM_BOT_TOKEN=xxxxxx:yyyyyyyyyyyy
-   TELEGRAM_CHAT_ID=123456789
-   ```
-
-   ⚠️ **Never push `.env` to GitHub** → keep it secret.  
-
----
-
-
-
 
 ## 📂 Project Structure
 
